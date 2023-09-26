@@ -6,7 +6,7 @@ WITH AGE_TABLE AS (
 		Users
 )
 SELECT 
-	count(*) as "sum"
+	count(1) as "sum"
 FROM 
 	Users u
 INNER JOIN
@@ -14,7 +14,9 @@ INNER JOIN
 	ON
 	u.user_id = a."ID"
 WHERE 
-	a."Age" >= 30
+	(a."Age" >= 30)
 	AND
-	u.residence != u.job
+	(u.residence = 'Kazan')
+	AND
+	(u.job != 'Kazan')
 ;
